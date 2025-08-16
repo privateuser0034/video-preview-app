@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Video Preview App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="hero-section">
+        <h2>Preview Videos from Any URL</h2>
+        <p>Paste a video URL to preview it with custom controls</p>
+        
+        <div class="url-input-section">
+            <div class="input-group">
+                <input type="url" id="videoUrl" placeholder="Paste video URL here (YouTube, Vimeo, direct video files)">
+                <button id="previewBtn" class="btn btn-primary">Preview</button>
+            </div>
+            <div id="loading" class="loading hidden">Loading...</div>
+            <div id="error" class="error hidden"></div>
+        </div>
+    </div>
+
+    <div id="videoPreview" class="video-preview hidden">
+        <div class="video-container">
+            <div id="videoPlayer"></div>
+        </div>
+        
+        <div class="video-controls">
+            <div class="video-info">
+                <h3 id="videoTitle"></h3>
+                <p id="videoSource"></p>
+            </div>
+            
+            <div class="control-buttons">
+                <button id="saveVideoBtn" class="btn btn-success">Save to Library</button>
+                <div class="playback-controls">
+                    <label for="speedControl">Speed:</label>
+                    <select id="speedControl">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
