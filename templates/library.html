@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Library - Video Preview App{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="library-header">
+        <h2>Video Library</h2>
+        <p>Your saved videos</p>
+    </div>
+    
+    <div id="loading" class="loading hidden">Loading library...</div>
+    <div id="error" class="error hidden"></div>
+    <div id="emptyLibrary" class="empty-state hidden">
+        <h3>No videos saved yet</h3>
+        <p><a href="/">Go to home page</a> to start adding videos to your library.</p>
+    </div>
+    
+    <div id="videoGrid" class="video-grid"></div>
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal" class="modal hidden">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalVideoTitle"></h3>
+            <button class="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="modalVideoPlayer"></div>
+            <div class="modal-controls">
+                <div class="playback-controls">
+                    <label for="modalSpeedControl">Speed:</label>
+                    <select id="modalSpeedControl">
+                        <option value="0.5">0.5x</option>
+                        <option value="0.75">0.75x</option>
+                        <option value="1" selected>1x</option>
+                        <option value="1.25">1.25x</option>
+                        <option value="1.5">1.5x</option>
+                        <option value="2">2x</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
